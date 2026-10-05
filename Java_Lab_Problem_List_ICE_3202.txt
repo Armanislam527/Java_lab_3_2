@@ -1,0 +1,21 @@
+Pabna University of Science and Technology
+Department of Information and Communication Engineering
+B.Sc.(Engineering) 3rd Year 2nd Semester Examination-2025
+Session: 2022-23        Course Code: ICE-3202
+Course Title: Network Programming with Java Sessional
+Problem List
+this is mi university coursework of a sessional lab .lab will be happened on this experiments. so implement this experiment one after another and put the exp number on the exp name as well. so I can understand the sequence or code for that.
+1. Write a JAVA Program to Display Image using JFrame
+2. Write a JAVA Program for generating Restaurant Bill
+3. Write a JAVA Program to Create a Student form in GUI
+4. Write a JAVA Program to develop a simple calculator in GUI
+5. Write a Java program to illustrate suspend, resume and stop operation of thread.
+6. Write a Java program to create thread class.
+7. Write a Java program to illustrate yield(), stop() and sleep() method using thread.
+8. Write a Java program to use priority of thread.
+9. Write a client-server TCP socket program in java that the server listens for connection requests, and whatever message the client sends, the server converts it to uppercase and sends it back.
+10. Write a client-server UDP socket program in java that the server listens for connection requests, and whatever message within 1024 bytes the client sends, the server converts it to uppercase and sends it back after 6 ms.
+11. Suppose we have an MS Access database named ICE_PUST which has a table named by Student with field (Name, Email, and Phone). Using this database answer the following questions:
+    a. Write down a java program to insert data into the Student table of the ICE_PUST database.
+    b. Create a java program to print all student records from the Student table of the ICE_PUST database.
+12. Write a Java program to perform insert, delete, edit and show data using MySQL database.

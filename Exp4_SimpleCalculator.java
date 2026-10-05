@@ -10,17 +10,18 @@ public class Exp4_SimpleCalculator extends JFrame {
 
     public Exp4_SimpleCalculator() {
         setTitle("Exp 4: Simple Calculator");
-        setSize(320, 430);
+        setSize(420, 560);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout(10, 10));
 
         display.setFont(new Font("SansSerif", Font.BOLD, 28));
+        display.setPreferredSize(new Dimension(400, 70));
         display.setHorizontalAlignment(SwingConstants.RIGHT);
         display.setEditable(false);
         add(display, BorderLayout.NORTH);
 
-        JPanel buttonPanel = new JPanel(new GridLayout(5, 4, 8, 8));
+        JPanel buttonPanel = new JPanel(new GridLayout(5, 4, 12, 12));
         String[] buttons = {
                 "7", "8", "9", "/",
                 "4", "5", "6", "*",
@@ -31,7 +32,7 @@ public class Exp4_SimpleCalculator extends JFrame {
 
         for (String text : buttons) {
             JButton button = new JButton(text);
-            button.setFont(new Font("SansSerif", Font.BOLD, 20));
+            button.setFont(new Font("SansSerif", Font.BOLD, 26));
             button.addActionListener(this::handleButtonClick);
             buttonPanel.add(button);
         }

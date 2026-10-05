@@ -15,12 +15,13 @@ public class Exp2_RestaurantBill extends JFrame {
 
     public Exp2_RestaurantBill() {
         setTitle("Exp 2: Restaurant Bill");
-        setSize(600, 420);
+        setSize(760, 560);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         JPanel inputPanel = new JPanel(new GridLayout(4, 2, 10, 10));
         inputPanel.setBorder(BorderFactory.createTitledBorder("Order Details"));
+        inputPanel.setFont(new Font("SansSerif", Font.PLAIN, 25));
 
         inputPanel.add(new JLabel("Item Name:"));
         inputPanel.add(itemField);
@@ -31,6 +32,21 @@ public class Exp2_RestaurantBill extends JFrame {
 
         JButton addButton = new JButton("Add Item");
         JButton totalButton = new JButton("Generate Bill");
+        Font controlFont = new Font("SansSerif", Font.PLAIN, 25);
+        for (JLabel label : new JLabel[] {
+                (JLabel) inputPanel.getComponent(0),
+                (JLabel) inputPanel.getComponent(2),
+                (JLabel) inputPanel.getComponent(4)}) {
+            label.setFont(controlFont);
+        }
+        itemField.setFont(controlFont);
+        quantityField.setFont(controlFont);
+        priceField.setFont(controlFont);
+        itemField.setPreferredSize(new Dimension(220, 38));
+        quantityField.setPreferredSize(new Dimension(220, 38));
+        priceField.setPreferredSize(new Dimension(220, 38));
+        addButton.setFont(controlFont);
+        totalButton.setFont(controlFont);
         inputPanel.add(addButton);
         inputPanel.add(totalButton);
 
@@ -38,7 +54,7 @@ public class Exp2_RestaurantBill extends JFrame {
         totalButton.addActionListener(this::generateBill);
 
         billArea.setEditable(false);
-        billArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
+        billArea.setFont(new Font("Monospaced", Font.PLAIN, 25));
         JScrollPane scrollPane = new JScrollPane(billArea);
 
         add(inputPanel, BorderLayout.NORTH);

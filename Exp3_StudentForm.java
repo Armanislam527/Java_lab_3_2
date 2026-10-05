@@ -11,33 +11,52 @@ public class Exp3_StudentForm extends JFrame {
 
     public Exp3_StudentForm() {
         setTitle("Exp 3: Student Form");
-        setSize(500, 420);
+        setSize(680, 560);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         JPanel formPanel = new JPanel(new GridLayout(6, 2, 10, 10));
         formPanel.setBorder(BorderFactory.createTitledBorder("Student Information"));
+        Font controlFont = new Font("SansSerif", Font.PLAIN, 25);
 
-        formPanel.add(new JLabel("Name:"));
+        JLabel nameLabel = new JLabel("Name:");
+        nameLabel.setFont(controlFont);
+        formPanel.add(nameLabel);
+        nameField.setFont(controlFont);
         formPanel.add(nameField);
-        formPanel.add(new JLabel("Roll Number:"));
+        JLabel rollLabel = new JLabel("Roll Number:");
+        rollLabel.setFont(controlFont);
+        formPanel.add(rollLabel);
+        rollField.setFont(controlFont);
         formPanel.add(rollField);
-        formPanel.add(new JLabel("Department:"));
+        JLabel departmentLabel = new JLabel("Department:");
+        departmentLabel.setFont(controlFont);
+        formPanel.add(departmentLabel);
+        departmentField.setFont(controlFont);
         formPanel.add(departmentField);
-        formPanel.add(new JLabel("Email:"));
+        JLabel emailLabel = new JLabel("Email:");
+        emailLabel.setFont(controlFont);
+        formPanel.add(emailLabel);
+        emailField.setFont(controlFont);
         formPanel.add(emailField);
-        formPanel.add(new JLabel("Phone:"));
+        JLabel phoneLabel = new JLabel("Phone:");
+        phoneLabel.setFont(controlFont);
+        formPanel.add(phoneLabel);
+        phoneField.setFont(controlFont);
         formPanel.add(phoneField);
 
-        JButton saveButton = new JButton("Save");
+        JButton submitButton = new JButton("Submit");
         JButton clearButton = new JButton("Clear");
-        formPanel.add(saveButton);
+        submitButton.setFont(controlFont);
+        clearButton.setFont(controlFont);
+        formPanel.add(submitButton);
         formPanel.add(clearButton);
 
         outputArea.setEditable(false);
         outputArea.setBackground(new Color(245, 245, 245));
+        outputArea.setFont(new Font("SansSerif", Font.PLAIN, 25));
 
-        saveButton.addActionListener(e -> {
+        submitButton.addActionListener(e -> {
             String name = nameField.getText().trim();
             String roll = rollField.getText().trim();
             String dept = departmentField.getText().trim();
@@ -49,7 +68,7 @@ public class Exp3_StudentForm extends JFrame {
                 return;
             }
 
-            outputArea.setText("Student Information Saved\n\n"
+            outputArea.setText("Student Information Submitted\n\n"
                     + "Name: " + name + "\n"
                     + "Roll: " + roll + "\n"
                     + "Department: " + dept + "\n"

@@ -8,17 +8,25 @@ mvn compile
 
 ## Experiment 11: MS Access
 
-Run:
+Part (a), insert a student record:
 
 ```bash
-mvn exec:java -Dexec.mainClass=Exp11_AccessStudentDatabase
+mvn exec:java -Dexec.mainClass=Exp11a_InsertStudent
 ```
 
-The program creates `ICE_PUST.accdb` in the current folder when it is missing, creates the `Student` table if needed, then inserts and displays sample rows. It uses UCanAccess/Jackcess because the JDBC-ODBC bridge (`sun.jdbc.odbc.JdbcOdbcDriver`) was removed from modern Java.
+Enter the student's name, email, and phone when prompted.
+
+Part (b), display all student records:
+
+```bash
+mvn exec:java -Dexec.mainClass=Exp11b_ShowStudents
+```
+
+Both programs use the `ICE_PUST.accdb` file in the current folder. The shared `Exp11_AccessStudentDatabase` helper creates the database and `Student` table if either is missing. UCanAccess is used because the old JDBC-ODBC bridge was removed from modern Java.
 
 ## Experiment 12: MySQL
 
-Start the MySQL server and set credentials that have permission to create databases:
+Start the MySQL service and configure a MySQL account that can create databases:
 
 ```bash
 sudo systemctl start mysql
@@ -28,4 +36,4 @@ export MYSQL_PASSWORD='your-password'
 mvn exec:java -Dexec.mainClass=Exp12_MySQLStudentOperations
 ```
 
-If the service is named MariaDB on your system, use `sudo systemctl start mariadb` instead. The program connects to `localhost:3306` by default and checks for the `ICE_PUST` database and `Student` table, creates either one if missing, then demonstrates insert, show, edit, and delete operations. Override the connection settings with `MYSQL_HOST`, `MYSQL_PORT`, `MYSQL_USER`, and `MYSQL_PASSWORD`. If the server is not listening, the program reports the connection problem and service-start command instead of continuing with database operations.
+If the service is named MariaDB on your system, use `sudo systemctl start mariadb` instead. The program connects to `localhost:3306` by default, checks for the `ICE_PUST` database and `Student` table, creates either one if missing, and demonstrates insert, show, edit, and delete operations. Override the connection settings with `MYSQL_HOST`, `MYSQL_PORT`, `MYSQL_USER`, and `MYSQL_PASSWORD`.

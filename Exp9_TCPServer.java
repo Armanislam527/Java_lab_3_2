@@ -20,7 +20,7 @@ public class Exp9_TCPServer {
                         System.out.println("Sent back: " + upperCase);
                     }
                 }
-            }
+    }
         } catch (IOException e) {
             e.printStackTrace();
         }

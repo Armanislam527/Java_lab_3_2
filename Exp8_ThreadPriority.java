@@ -11,7 +11,7 @@ public class Exp8_ThreadPriority {
                 System.out.println("Thread-2: " + i);
             }
         }, "Thread-2");
-
+ 
         t1.setPriority(Thread.MIN_PRIORITY);
         t2.setPriority(Thread.MAX_PRIORITY);
 

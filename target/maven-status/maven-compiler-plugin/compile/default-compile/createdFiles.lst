@@ -5,9 +5,11 @@ Exp1_DisplayImageUsingJFrame.class
 Exp11_AccessStudentDatabase.class
 DemoThread.class
 Exp4_SimpleCalculator.class
+Exp11b_ShowStudents.class
 Exp2_RestaurantBill.class
 Exp8_ThreadPriority.class
 Exp5_ThreadSuspendResumeStop.class
+Exp11a_InsertStudent.class
 MyThread.class
 Exp3_StudentForm.class
 Exp7_YieldStopSleepThread.class

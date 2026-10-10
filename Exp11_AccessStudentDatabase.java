@@ -10,14 +10,14 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Exp11_AccessStudentDatabase {
     private static final File DATABASE_FILE = Path.of("ICE_PUST.accdb").toAbsolutePath().toFile();
     private static final String URL = "jdbc:ucanaccess://" + DATABASE_FILE;
+
+    private Exp11_AccessStudentDatabase() {
+    }
 
     private static void createStudentTable(Database database) throws IOException {
         new TableBuilder("Student")
@@ -47,43 +47,8 @@ public class Exp11_AccessStudentDatabase {
         }
     }
 
-    private static Connection openConnection() throws IOException, SQLException {
+    static Connection openConnection() throws IOException, SQLException {
         ensureDatabaseAndTable();
         return DriverManager.getConnection(URL);
-    }
-
-    public static void insertStudent(String name, String email, String phone) throws IOException, SQLException {
-        String sql = "INSERT INTO Student (Name, Email, Phone) VALUES (?, ?, ?)";
-
-        try (Connection connection = openConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, name);
-            statement.setString(2, email);
-            statement.setString(3, phone);
-            int rows = statement.executeUpdate();
-            System.out.println(rows + " row inserted into Student table.");
-        }
-    }
-
-    public static void showAllStudents() throws IOException, SQLException {
-        String sql = "SELECT Name, Email, Phone FROM Student";
-
-        try (Connection connection = openConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(sql)) {
-            System.out.println("\nStudent records:");
-            while (resultSet.next()) {
-                System.out.println(
-                        "Name: " + resultSet.getString("Name") +
-                        ", Email: " + resultSet.getString("Email") +
-                        ", Phone: " + resultSet.getString("Phone"));
-            }
-        }
-    }
-
-    public static void main(String[] args) throws IOException, SQLException {
-        insertStudent("Rahim", "rahim@gmail.com", "01700000001");
-        insertStudent("Sadia", "sadia@gmail.com", "01700000002");
-        showAllStudents();
     }
 }
